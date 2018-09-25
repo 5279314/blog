@@ -90,7 +90,7 @@
 
 
 
-  <meta name="keywords" content="渗透," />
+  <meta name="keywords" content="linux," />
 
 
 
@@ -101,17 +101,17 @@
 
 
 
-<meta name="description" content="sqlmap基础注入 SQLMAP是一款基于python开发的SQL注入工具，几乎支持现在所有的数据库，功能非常强大。由于是国外的产品，所以对于我这种英语水平不高的菜鸟来说，使用起来会有点困难。虽然现在已经能熟练使用大部分功能了，但还是把中文解释贴过来，方便以后使用。Options（选项）：–version 显示程序的版本号并退出-h, –help 显示此帮助消息并退出-v VERBOSE 详细级">
-<meta name="keywords" content="渗透">
+<meta name="description" content="每天一个命令之awk">
+<meta name="keywords" content="linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sqlmap基础注入">
-<meta property="og:url" content="http://www.linuxboy.top/2018/08/16/sqlmap基础注入/index.html">
+<meta property="og:title" content="linux命令AWK">
+<meta property="og:url" content="http://www.linuxboy.top/2018/linux/20180926.html">
 <meta property="og:site_name" content="LIUNX男孩">
-<meta property="og:description" content="sqlmap基础注入 SQLMAP是一款基于python开发的SQL注入工具，几乎支持现在所有的数据库，功能非常强大。由于是国外的产品，所以对于我这种英语水平不高的菜鸟来说，使用起来会有点困难。虽然现在已经能熟练使用大部分功能了，但还是把中文解释贴过来，方便以后使用。Options（选项）：–version 显示程序的版本号并退出-h, –help 显示此帮助消息并退出-v VERBOSE 详细级">
-<meta property="og:updated_time" content="2018-08-20T08:00:44.333Z">
+<meta property="og:description" content="每天一个命令之awk">
+<meta property="og:updated_time" content="2018-09-25T08:31:01.029Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sqlmap基础注入">
-<meta name="twitter:description" content="sqlmap基础注入 SQLMAP是一款基于python开发的SQL注入工具，几乎支持现在所有的数据库，功能非常强大。由于是国外的产品，所以对于我这种英语水平不高的菜鸟来说，使用起来会有点困难。虽然现在已经能熟练使用大部分功能了，但还是把中文解释贴过来，方便以后使用。Options（选项）：–version 显示程序的版本号并退出-h, –help 显示此帮助消息并退出-v VERBOSE 详细级">
+<meta name="twitter:title" content="linux命令AWK">
+<meta name="twitter:description" content="每天一个命令之awk">
 
 
 
@@ -141,7 +141,7 @@
 
 
 
-  <link rel="canonical" href="http://www.linuxboy.top/2018/08/16/sqlmap基础注入/"/>
+  <link rel="canonical" href="http://www.linuxboy.top/2018/linux/20180926.html"/>
 
 
 
@@ -155,7 +155,7 @@
 })();
 </script>
 
-  <title>sqlmap基础注入 | LIUNX男孩</title>
+  <title>linux命令AWK | LIUNX男孩</title>
   
 
 
@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.linuxboy.top/2018/08/16/sqlmap基础注入/">
+    <link itemprop="mainEntityOfPage" href="http://www.linuxboy.top/2018/linux/20180926.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LIUNX男孩">
@@ -325,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">sqlmap基础注入</h1>
+          <h1 class="post-title" itemprop="name headline">linux命令AWK</h1>
         
 
         <div class="post-meta">
@@ -337,8 +337,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-16T14:18:28+08:00">
-                2018-08-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-26T15:10:47+08:00">
+                2018-09-26
               </time>
             
 
@@ -360,8 +360,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/security/" itemprop="url" rel="index">
-                    <span itemprop="name">security</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -383,6 +383,10 @@
           
 
           
+              <div class="post-description">
+                  每天一个命令之awk
+              </div>
+          
 
         </div>
       </header>
@@ -397,9 +401,49 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="/assets/css/DPlayer.min.css"><script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><pre><code>sqlmap基础注入
-</code></pre><p>SQLMAP是一款基于python开发的SQL注入工具，几乎支持现在所有的数据库，功能非常强大。由于是国外的产品，所以对于我这种英语水平不高的菜鸟来说，使用起来会有点困难。虽然现在已经能熟练使用大部分功能了，但还是把中文解释贴过来，方便以后使用。<br>Options（选项）：<br>–version 显示程序的版本号并退出<br>-h, –help 显示此帮助消息并退出<br>-v VERBOSE 详细级别：0-6（默认为1）<br><a id="more"></a><br>Target（目标）：<br>以下至少需要设置其中一个选项，设置目标URL。<br>-d DIRECT 直接连接到数据库。<br>-u URL, –url=URL 目标URL。<br>-l LIST 从Burp或WebScarab代理的日志中解析目标。<br>-r REQUESTFILE 从一个文件中载入HTTP请求。<br>-g GOOGLEDORK 处理Google dork的结果作为目标URL。<br>-c CONFIGFILE 从INI配置文件中加载选项。<br>Request（请求）：<br>这些选项可以用来指定如何连接到目标URL。<br>–data=DATA 通过POST发送的数据字符串<br>–cookie=COOKIE HTTP Cookie头<br>–cookie-urlencode URL 编码生成的cookie注入<br>–drop-set-cookie 忽略响应的Set – Cookie头信息<br>–user-agent=AGENT 指定 HTTP User – Agent头<br>–random-agent 使用随机选定的HTTP User – Agent头<br>–referer=REFERER 指定 HTTP Referer头<br>–headers=HEADERS 换行分开，加入其他的HTTP头<br>–auth-type=ATYPE HTTP身份验证类型（基本，摘要或NTLM）(Basic, Digest or NTLM)<br>–auth-cred=ACRED HTTP身份验证凭据（用户名:密码）<br>–auth-cert=ACERT HTTP认证证书（key_file，cert_file）<br>–proxy=PROXY 使用HTTP代理连接到目标URL<br>–proxy-cred=PCRED HTTP代理身份验证凭据（用户名：密码）<br>–ignore-proxy 忽略系统默认的HTTP代理<br>–delay=DELAY 在每个HTTP请求之间的延迟时间，单位为秒<br>–timeout=TIMEOUT 等待连接超时的时间（默认为30秒）<br>–retries=RETRIES 连接超时后重新连接的时间（默认3）<br>–scope=SCOPE 从所提供的代理日志中过滤器目标的正则表达式<br>–safe-url=SAFURL 在测试过程中经常访问的url地址<br>–safe-freq=SAFREQ 两次访问之间测试请求，给出安全的URL<br>Optimization（优化）：<br>这些选项可用于优化SqlMap的性能。<br>-o 开启所有优化开关<br>–predict-output 预测常见的查询输出<br>–keep-alive 使用持久的HTTP（S）连接<br>–null-connection 从没有实际的HTTP响应体中检索页面长度<br>–threads=THREADS 最大的HTTP（S）请求并发量（默认为1）<br>Injection（注入）：<br>这些选项可以用来指定测试哪些参数， 提供自定义的注入payloads和可选篡改脚本。<br>-p TESTPARAMETER 可测试的参数（S）<br>–dbms=DBMS 强制后端的DBMS为此值<br>–os=OS 强制后端的DBMS操作系统为这个值<br>–prefix=PREFIX 注入payload字符串前缀<br>–suffix=SUFFIX 注入payload字符串后缀<br>–tamper=TAMPER 使用给定的脚本（S）篡改注入数据<br>Detection（检测）：<br>这些选项可以用来指定在SQL盲注时如何解析和比较HTTP响应页面的内容。<br>–level=LEVEL 执行测试的等级（1-5，默认为1）<br>–risk=RISK 执行测试的风险（0-3，默认为1）<br>–string=STRING 查询时有效时在页面匹配字符串<br>–regexp=REGEXP 查询时有效时在页面匹配正则表达式<br>–text-only 仅基于在文本内容比较网页<br>Techniques（技巧）：<br>这些选项可用于调整具体的SQL注入测试。<br>–technique=TECH SQL注入技术测试（默认BEUST）<br>–time-sec=TIMESEC DBMS响应的延迟时间（默认为5秒）<br>–union-cols=UCOLS 定列范围用于测试UNION查询注入<br>–union-char=UCHAR 用于暴力猜解列数的字符<br>Fingerprint（指纹）：<br>-f, –fingerprint 执行检查广泛的DBMS版本指纹<br>Enumeration（枚举）：<br>这些选项可以用来列举后端数据库管理系统的信息、表中的结构和数据。此外，您还可以运行您自己<br>的SQL语句。<br>-b, –banner 检索数据库管理系统的标识<br>–current-user 检索数据库管理系统当前用户<br>–current-db 检索数据库管理系统当前数据库<br>–is-dba 检测DBMS当前用户是否DBA<br>–users 枚举数据库管理系统用户<br>–passwords 枚举数据库管理系统用户密码哈希<br>–privileges 枚举数据库管理系统用户的权限<br>–roles 枚举数据库管理系统用户的角色<br>–dbs 枚举数据库管理系统数据库<br>–tables 枚举的DBMS数据库中的表<br>–columns 枚举DBMS数据库表列<br>–dump 转储数据库管理系统的数据库中的表项<br>–dump-all 转储所有的DBMS数据库表中的条目<br>–search 搜索列（S），表（S）和/或数据库名称（S）<br>-D DB 要进行枚举的数据库名<br>-T TBL 要进行枚举的数据库表<br>-C COL 要进行枚举的数据库列<br>-U USER 用来进行枚举的数据库用户<br>–exclude-sysdbs 枚举表时排除系统数据库<br>–start=LIMITSTART 第一个查询输出进入检索<br>–stop=LIMITSTOP 最后查询的输出进入检索<br>–first=FIRSTCHAR 第一个查询输出字的字符检索<br>–last=LASTCHAR 最后查询的输出字字符检索<br>–sql-query=QUERY 要执行的SQL语句<br>–sql-shell 提示交互式SQL的shell<br>Brute force（蛮力）：<br>这些选项可以被用来运行蛮力检查。<br>–common-tables 检查存在共同表<br>–common-columns 检查存在共同列<br>User-defined function injection（用户自定义函数注入）：<br>这些选项可以用来创建用户自定义函数。<br>–udf-inject 注入用户自定义函数<br>–shared-lib=SHLIB 共享库的本地路径<br>File system access（访问文件系统）：<br>这些选项可以被用来访问后端数据库管理系统的底层文件系统。<br>–file-read=RFILE 从后端的数据库管理系统文件系统读取文件<br>–file-write=WFILE 编辑后端的数据库管理系统文件系统上的本地文件<br>–file-dest=DFILE 后端的数据库管理系统写入文件的绝对路径<br>Operating system access（操作系统访问）：<br>这些选项可以用于访问后端数据库管理系统的底层操作系统。</p>
-<p>–os-cmd=OSCMD 执行操作系统命令<br>–os-shell 交互式的操作系统的shell<br>–os-pwn 获取一个OOB shell，meterpreter或VNC<br>–os-smbrelay 一键获取一个OOB shell，meterpreter或VNC<br>–os-bof 存储过程缓冲区溢出利用<br>–priv-esc 数据库进程用户权限提升<br>–msf-path=MSFPATH Metasploit Framework本地的安装路径<br>–tmp-path=TMPPATH 远程临时文件目录的绝对路径<br>Windows注册表访问：<br>这些选项可以被用来访问后端数据库管理系统Windows注册表。<br>–reg-read 读一个Windows注册表项值<br>–reg-add 写一个Windows注册表项值数据<br>–reg-del 删除Windows注册表键值<br>–reg-key=REGKEY Windows注册表键<br>–reg-value=REGVAL Windows注册表项值<br>–reg-data=REGDATA Windows注册表键值数据<br>–reg-type=REGTYPE Windows注册表项值类型<br>General（一般）：<br>这些选项可以用来设置一些一般的工作参数。<br>-t TRAFFICFILE 记录所有HTTP流量到一个文本文件中<br>-s SESSIONFILE 保存和恢复检索会话文件的所有数据<br>–flush-session 刷新当前目标的会话文件<br>–fresh-queries 忽略在会话文件中存储的查询结果<br>–eta 显示每个输出的预计到达时间<br>–update 更新SqlMap<br>–save file保存选项到INI配置文件<br>–batch 从不询问用户输入，使用所有默认配置。<br>Miscellaneous（杂项）：<br>–beep 发现SQL注入时提醒<br>–check-payload IDS对注入payloads的检测测试<br>–cleanup SqlMap具体的UDF和表清理DBMS<br>–forms 对目标URL的解析和测试形式<br>–gpage=GOOGLEPAGE 从指定的页码使用谷歌dork结果<br>–page-rank Google dork结果显示网页排名（PR）<br>–parse-errors 从响应页面解析数据库管理系统的错误消息<br>–replicate 复制转储的数据到一个sqlite3数据库<br>–tor 使用默认的Tor（Vidalia/ Privoxy/ Polipo）代理地址<br>–wizard 给初级用户的简单向导界面<br>SQLMAP实战操作：<br>1.ACCESS数据库：<br>sqlmap.py -u “url” /<em>-u为常规扫描参数</em>/<br>sqlmap.py -u “url” –tables /<em>–tables拆数据库表</em>/<br>sqlmap.py -u “url” –columns -T “要拆的表名”/<em>列出指定表名</em>/<br>sqlmap.py -u “url” –dump -T “要拆的表名”-C “要拆的字段名” /<em>–dump为拆解字段名会保存在sqlmap/output目录下</em>/<br>2.MYSQL数据库：<br>sqlmap.py -u “url” /<em>扫描注入点</em>/<br>sqlmap.py -u “url” –dbs /<em>列出所有数据库</em>/<br>sqlmap.py -u “url” –current-db /<em>列出当前数据库</em>/<br>sqlmap.py -u “url” –current-user /<em>列出当前用户</em>/<br>sqlmap.py -u “url” –tables -D “当前数据库名” /<em>拆解当前数据库表</em>/<br>sqlmap.py -u “url” –columns -T “要拆得的表名” -D “当前数据库名” /<em>拆解指定表字段名</em>/<br>sqlmap.py -u “url” –dump -C “字段名” -T “表名” -D “当前数据库”<br>3.SQLSERVER数据库：<br>sqlmap.py -u “url” /<em>扫描注入点</em>/<br>sqlmap.py -u “url” –dbs /<em>列出所有数据库</em>/<br>sqlmap.py -u “url” –current-db /<em>列出当前数据库</em>/<br>sqlmap.py -u “url” –current-user /<em>列出当前用户</em>/<br>sqlmap.py -u “url” –tables -D “当前数据库名” /<em>拆解当前数据库表</em>/<br>sqlmap.py -u “url” –columns -T “要拆得的表名” -D “当前数据库名” /<em>拆解指定表字段名</em>/<br>sqlmap.py -u “url” –dump -C “字段名” -T “表名” -D “当前数据库”<br>SQLSERVER操作和MYSQL是一样的！！！常见的几种数据库！！！<br>4.COOKIE注入：<br>sqlmap.py -u “www.xxx.com/asp或者www.xxx.com/php” –cookie “参数名如id=1” –level 2/<em>level为提升权限</em>/<br>什么数据库就按照上面的数据库加上cookie语句拆解就行了<br>5.POST注入：<br>抓包保存到SQLMAP目录下.txt的文件然后输入指令sqlmap.py -r xxx.txt /<em>xxx.txt为保存包文件的文件名”<br>sqlmap.py -u “url” –data “POST参数”<br>6.执行shell命令：<br>sqlmap.py -u “url” –os-cmd=”net user” /</em>执行net user命令<em>/<br>sqlmap.py -u “url” –os-shell /</em>系统交互的shell<em>/<br>7.注入HTTP请求 :<br>sqlmap.py -r xxx.txt –dbs /</em>xxx.txt内容为HTTP请求<em>/<br>8.绕过WAF的tamper插件使用：<br>sqlmap.py -u “url” –tamper “xxx.py”<br>sqlmap.py -u “url” –tamper=”xxx.py”<br>关于tamper脚本详细说明在本博客中有，（敬请期待）<br>9.将注入语句插入到指定位置：<br>sqlmap.py -u “url(www.xxx.com/id/1</em>.html)” –dbs<br>有些网站是采用伪静态的页面使用SQLMAP的普通注入是不行的，所以SQLMAP提供了”<em>”参数将SQL语句插入指定位置，一般用于伪静态注入。<br>在使用HTTP注入时使用-r参数也可以直接在文本中添加</em>号<br>10.延时注入：<br>sqlmap –dbs -u “url” –delay 0.5 /<em>延时0.5秒</em>/<br>sqlmap –dbs -u “url” –safe-freq /<em>请求2次</em>/<br>11.使用谷歌语法搜索注入(Google hack)：<br>sqlmap.py -g “inurl:asp?id=1” /*””内为搜索语法，如：inurl,intitle,site,filetype等等<br>我朋友总结了很多可以参考一下：<a href="http://blog.csdn.net/wsh19930305/article/details/62247962" target="_blank" rel="external">http://blog.csdn.net/wsh19930305/article/details/62247962</a><br>同时欢迎大家关注小瑞的个人博客：www.hackerui.me</p>
+        <link rel="stylesheet" type="text/css" href="/assets/css/DPlayer.min.css"><script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h2 id="awk简介"><a href="#awk简介" class="headerlink" title="awk简介"></a>awk简介</h2><p>awk是一种编程语言，用于在linux/unix下对文本和数据进行处理。数据可以来自标准输入(stdin)、一个或多个文件，或其它命令的输出。它支持用户自定义函数和动态正则表达式等先进功能，是linux/unix下的一个强大编程工具。它在命令行中使用，但更多是作为脚本来使用。awk有很多内建的功能，比如数组、函数等，这是它和C语言的相同之处，灵活性是awk最大的优势。</p>
+<h2 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h2><p><code>awk [选项] &#39;script&#39; var=value file(s)</code><br><code>awk [选项] -f scriptfile var=value file(s)</code></p>
+<h3 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> -F fs   fs指定输入分隔符，fs可以是字符串或正则表达式，如-F:</div><div class="line">-v var=value   赋值一个用户定义变量，将外部变量传递给awk</div><div class="line">-f scripfile  从脚本文件中读取awk命令</div><div class="line">-m[fr] val   对val值设置内在限制，-mf选项限制分配给val的最大块数目；-mr选项限制记录的最大数目。这两个功能是Bell实验室版awk的扩展功能，在标准awk中不适用。</div></pre></td></tr></table></figure>
+<h2 id="awk模式和操作"><a href="#awk模式和操作" class="headerlink" title="awk模式和操作"></a>awk模式和操作</h2><p>awk脚本是由模式和操作组成的。</p>
+<h3 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">模式可以是以下任意一个：</div><div class="line"></div><div class="line">   /正则表达式/：使用通配符的扩展集。</div><div class="line">   关系表达式：使用运算符进行操作，可以是字符串或数字的比较测试。</div><div class="line">   模式匹配表达式：用运算符~（匹配）和~!（不匹配）。</div><div class="line">   BEGIN语句块、pattern语句块、END语句块</div></pre></td></tr></table></figure>
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">操作由一个或多个命令、函数、表达式组成，之间由换行符或分号隔开，并位于大括号内，主要部分是：</div><div class="line">    变量或数组赋值</div><div class="line">    输出命令</div><div class="line">    内置函数</div><div class="line">    控制流语句</div></pre></td></tr></table></figure>
+<h2 id="awk脚本基本结构"><a href="#awk脚本基本结构" class="headerlink" title="awk脚本基本结构"></a>awk脚本基本结构</h2><p><code>awk &#39;BEGIN{ print &quot;start&quot; } pattern{ commands } END{ print &quot;end&quot; }&#39; file</code><br>一个awk脚本通常由：BEGIN语句块、能够使用模式匹配的通用语句块、END语句块3部分组成，这三个部分是可选的。任意一个部分都可以不出现在脚本中，脚本通常是被单引号或双引号中，例如：<br><code>awk &#39;BEGIN{ i=0 } { i++ } END{ print i }&#39; filename
+awk &quot;BEGIN{ i=0 } { i++ } END{ print i }&quot; filename</code></p>
+<h2 id="awk的工作原理"><a href="#awk的工作原理" class="headerlink" title="awk的工作原理"></a>awk的工作原理</h2><p><code>awk &#39;BEGIN{ commands } pattern{ commands } END{ commands }&#39;</code><br>     第一步：执行<code>BEGIN{ commands }</code>语句块中的语句；<br>    第二步：从文件或标准输入(stdin)读取一行，然后执行<code>pattern{ commands }</code>语句块，它逐行扫描文件，从第一行到最后一行重复这个过程，直到文件全部被读取完毕。<br>    第三步：当读至输入流末尾时，执行<code>END{ commands }</code>语句块。</p>
+<p>BEGIN语句块在awk开始从输入流中读取行之前被执行，这是一个可选的语句块，比如变量初始化、打印输出表格的表头等语句通常可以写在BEGIN语句块中。</p>
+<p>END语句块在awk从输入流中读取完所有的行之后即被执行，比如打印所有行的分析结果这类信息汇总都是在END语句块中完成，它也是一个可选语句块。</p>
+<p>pattern语句块中的通用命令是最重要的部分，它也是可选的。如果没有提供pattern语句块，则默认执行<code>{ print }</code>，即打印每一个读取到的行，awk读取的每一行都会执行该语句块。</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p><code>[root@localhost ~]# echo -e &quot;A line 1\nA line 2&quot; | awk &#39;BEGIN{ print &quot;Start&quot; } { print } END{ print &quot;End&quot; }&#39;
+Start
+A line 1
+A line 2
+End</code><br>当使用不带参数的<code>print</code>时，它就打印当前行，当<code>print</code>的参数是以逗号进行分隔时，打印时则以空格作为定界符。在awk的print语句块中双引号是被当作拼接符使用，例如：<br><code>root@localhost ~]# echo | awk &#39;{ var1=&quot;v1&quot;; var2=&quot;v2&quot;; var3=&quot;v3&quot;; print var1,var2,var3; }&#39; 
+v1 v2 v3</code><br>双引号拼接使用：<br><code>[root@localhost ~]# echo | awk &#39;{ var1=&quot;v1&quot;; var2=&quot;v2&quot;; var3=&quot;v3&quot;; print var1&quot;=&quot;var2&quot;=&quot;var3; }&#39;
+v1=v2=v3</code><br>{ }类似一个循环体，会对文件中的每一行进行迭代，通常变量初始化语句（如：i=0）以及打印文件头部的语句放入BEGIN语句块中，将打印的结果等语句放在END语句块中。</p>
+<h2 id="awk内置变量（预定义变量）"><a href="#awk内置变量（预定义变量）" class="headerlink" title="awk内置变量（预定义变量）"></a>awk内置变量（预定义变量）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">$n 当前记录的第n个字段，比如n为1表示第一个字段，n为2表示第二个字段。 </div><div class="line">$0 这个变量包含执行过程中当前行的文本内容。</div><div class="line">ARGC 命令行参数的数目。</div><div class="line">ARGIND 命令行中当前文件的位置（从0开始算）。</div><div class="line">ARGV 包含命令行参数的数组。</div><div class="line">CONVFMT 数字转换格式（默认值为%.6g）。</div><div class="line">ENVIRON 环境变量关联数组。</div><div class="line">ERRNO 最后一个系统错误的描述。</div><div class="line">FIELDWIDTHS 字段宽度列表（用空格键分隔）。</div><div class="line">FILENAME 当前输入文件的名。</div><div class="line">FNR 同NR，但相对于当前文件。</div><div class="line">FS 字段分隔符（默认是任何空格）。</div><div class="line">IGNORECASE 如果为真，则进行忽略大小写的匹配。</div><div class="line">NF 表示字段数，在执行过程中对应于当前的字段数。</div><div class="line">NR 表示记录数，在执行过程中对应于当前的行号。</div><div class="line">OFMT 数字的输出格式（默认值是%.6g）。</div><div class="line">OFS 输出字段分隔符（默认值是一个空格）。</div><div class="line">ORS 输出记录分隔符（默认值是一个换行符）。</div><div class="line">RS 记录分隔符（默认是一个换行符）。</div><div class="line">RSTART 由match函数所匹配的字符串的第一个位置。</div><div class="line">RLENGTH 由match函数所匹配的字符串的长度。</div><div class="line">SUBSEP 数组下标分隔符（默认值是34）。</div></pre></td></tr></table></figure>
+<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><p><code>[root@localhost ~]# echo -e &quot;line1 f2 f3\nline2 f4 f5\nline3 f6 f7&quot; | awk &#39;{print &quot;Line No:&quot;NR&quot;, No of fields:&quot;NF, &quot;$0=&quot;$0, &quot;$1=&quot;$1, &quot;$2=&quot;$2, &quot;$3=&quot;$3}&#39; 
+Line No:1, No of fields:3 $0=line1 f2 f3 $1=line1 $2=f2 $3=f3
+Line No:2, No of fields:3 $0=line2 f4 f5 $1=line2 $2=f4 $3=f5
+Line No:3, No of fields:3 $0=line3 f6 f7 $1=line3 $2=f6 $3=f7</code><br>使用<code>print $NF</code>可以打印出一行中的最后一个字段，使用<code>$(NF-1)</code>则是打印倒数第二个字段，其他以此类推：<br><code>[root@localhost ~]# echo -e &quot;line1 f2 f3\n line2 f4 f5&quot; | awk &#39;{print $NF}&#39;
+f3
+f5</code><br><code>[root@localhost ~]# echo -e &quot;line1 f2 f3\n line2 f4 f5&quot; | awk &#39;{print $(NF-1)}&#39;
+f2
+f4</code><br>打印每一行的第二和第三个字段：<br><code>awk &#39;{ print $2,$3 }&#39; filename</code><br>统计文件中的行数：<br><code>awk &#39;END{ print NR }&#39; filename</code><br>以上命令只使用了END语句块，在读入每一行的时，awk会将NR更新为对应的行号，当到达最后一行NR的值就是最后一行的行号，所以END语句块中的NR就是文件的行数。</p>
+<p>一个每一行中第一个字段值累加的例子：<br><code>[root@localhost ~]# seq 5 | awk &#39;BEGIN{ sum=0; print &quot;总和：&quot; } { print $1&quot;+&quot;; sum+=$1 } END{ print &quot;等于&quot;; print sum }&#39; 
+总和：
+1+
+2+
+3+
+4+
+5+
+等于
+15</code></p>
+<h2 id="awk运算与判断"><a href="#awk运算与判断" class="headerlink" title="awk运算与判断"></a>awk运算与判断</h2><p>作为一种程序设计语言所应具有的特点之一，awk支持多种运算，这些运算与C语言提供的基本相同。awk还提供了一系列内置的运算函数（如log、sqr、cos、sin等）和一些用于对字符串进行操作（运算）的函数（如length、substr等等）。这些函数的引用大大的提高了awk的运算功能。作为对条件转移指令的一部分，关系判断是每种程序设计语言都具备的功能，awk也不例外，awk中允许进行多种测试，作为样式匹配，还提供了模式匹配表达式~（匹配）和~!（不匹配）。作为对测试的一种扩充，awk也支持用逻辑运算符。</p>
+<h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">运算符  描述</div><div class="line">+ -     加，减</div><div class="line">* / &amp;   乘，除与求余</div><div class="line">+ - !   一元加，减和逻辑非</div><div class="line">^ ***   求幂</div><div class="line">++ --   增加或减少，作为前缀或后缀</div></pre></td></tr></table></figure>
+<p>例：<br><code>awk &#39;BEGIN{a=&quot;b&quot;;print a++,++a;}&#39;
+0 2</code><br>注意：所有用作算术运算符进行操作，操作数自动转为数值，所有非数值都变为0</p>
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">运算符						描述</div><div class="line">= += -= *= /= %= ^= **=		赋值语句</div></pre></td></tr></table></figure>
+<p>##未完待续！</p>
 
       
     </div>
@@ -418,12 +462,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/08/16/sqlmap基础注入/">sqlmap基础注入</a></p>
+  <p><span>本文标题:</span><a href="/2018/linux/20180926.html">linux命令AWK</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 LIUNX男孩 的个人博客">LIUNX男孩</a></p>
-  <p><span>发布时间:</span>2018年08月16日 - 14:08</p>
-  <p><span>最后更新:</span>2018年08月20日 - 16:08</p>
-  <p><span>原始链接:</span><a href="/2018/08/16/sqlmap基础注入/" title="sqlmap基础注入">http://www.linuxboy.top/2018/08/16/sqlmap基础注入/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.linuxboy.top/2018/08/16/sqlmap基础注入/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年09月26日 - 15:09</p>
+  <p><span>最后更新:</span>2018年09月25日 - 16:09</p>
+  <p><span>原始链接:</span><a href="/2018/linux/20180926.html" title="linux命令AWK">http://www.linuxboy.top/2018/linux/20180926.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://www.linuxboy.top/2018/linux/20180926.html"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -453,7 +497,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/渗透/" rel="tag"><i class="fa fa-tag"></i> 渗透</a>
+            <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
           
         </div>
       
@@ -478,18 +522,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/14/linuxday1/" rel="next" title="linux学习笔记第一天">
-                <i class="fa fa-chevron-left"></i> linux学习笔记第一天
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/13/一套实用的渗透测试岗位面试题，你会吗？/" rel="prev" title="一套实用的渗透测试岗位面试题，你会吗？">
-                一套实用的渗透测试岗位面试题，你会吗？ <i class="fa fa-chevron-right"></i>
+              <a href="/2018/linux/20180925.html" rel="prev" title="linux命令SED">
+                linux命令SED <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -542,8 +582,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            boy
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -562,7 +611,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -637,6 +686,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#awk简介"><span class="nav-number">1.</span> <span class="nav-text">awk简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令格式"><span class="nav-number">2.</span> <span class="nav-text">命令格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选项"><span class="nav-number">2.1.</span> <span class="nav-text">选项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk模式和操作"><span class="nav-number">3.</span> <span class="nav-text">awk模式和操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模式"><span class="nav-number">3.1.</span> <span class="nav-text">模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作"><span class="nav-number">3.2.</span> <span class="nav-text">操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk脚本基本结构"><span class="nav-number">4.</span> <span class="nav-text">awk脚本基本结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk的工作原理"><span class="nav-number">5.</span> <span class="nav-text">awk的工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实例"><span class="nav-number">5.1.</span> <span class="nav-text">实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk内置变量（预定义变量）"><span class="nav-number">6.</span> <span class="nav-text">awk内置变量（预定义变量）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实例-1"><span class="nav-number">6.1.</span> <span class="nav-text">实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk运算与判断"><span class="nav-number">7.</span> <span class="nav-text">awk运算与判断</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算术运算符"><span class="nav-number">7.1.</span> <span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#赋值运算符"><span class="nav-number">7.2.</span> <span class="nav-text">赋值运算符</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
