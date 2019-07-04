@@ -101,17 +101,27 @@
 
 
 
-<meta name="description" content="nginx编译安装后用了一段时间后发现当前版本太老或需要新的功能时就需对当前nginx版本进行版本升级，但又不能影响正常的使用，所以这时就需到对nginx的平滑升级，更新到最新版本了。  本文演示的是nginx-1.6.0升级到nginx-1.14.0的过程，其他版本也适用。 nginx新版的下载   下载页面：http://nginx.org/en/download.html1wget ht">
+<meta name="description" content="安装centos7系统首先,先介绍一下CentOS7的镜像,本文中,我们使用的是CentOS7.2的镜像CentOS7的下载地址可以从以下这个地址下载http://mirrors.aliyun.com/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1708.isoCentOS -7-x86_64 -DVD -1708.iso从 CentOS 7 之后，版本命名就">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nginx编译安装后对nginx进行平滑升级">
-<meta property="og:url" content="https://blog.linuxboy.top/2018/linux/20181008.html">
+<meta property="og:title" content="新安装的linux系统优化调优">
+<meta property="og:url" content="https://blog.linuxboy.top/2019/linux/20190704.html">
 <meta property="og:site_name" content="LIUNX男孩">
-<meta property="og:description" content="nginx编译安装后用了一段时间后发现当前版本太老或需要新的功能时就需对当前nginx版本进行版本升级，但又不能影响正常的使用，所以这时就需到对nginx的平滑升级，更新到最新版本了。  本文演示的是nginx-1.6.0升级到nginx-1.14.0的过程，其他版本也适用。 nginx新版的下载   下载页面：http://nginx.org/en/download.html1wget ht">
-<meta property="og:updated_time" content="2019-05-15T01:57:18.495Z">
+<meta property="og:description" content="安装centos7系统首先,先介绍一下CentOS7的镜像,本文中,我们使用的是CentOS7.2的镜像CentOS7的下载地址可以从以下这个地址下载http://mirrors.aliyun.com/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1708.isoCentOS -7-x86_64 -DVD -1708.iso从 CentOS 7 之后，版本命名就">
+<meta property="og:image" content="https://blog.linuxboy.top/images/8.png">
+<meta property="og:image" content="https://blog.linuxboy.top/images/1.png">
+<meta property="og:image" content="https://blog.linuxboy.top/images/2.png">
+<meta property="og:image" content="https://blog.linuxboy.top/images/3.png">
+<meta property="og:image" content="https://blog.linuxboy.top/images/4.png">
+<meta property="og:image" content="https://blog.linuxboy.top/images/5.png">
+<meta property="og:image" content="https://blog.linuxboy.top/images/6.png">
+<meta property="og:image" content="https://blog.linuxboy.top/images/7.png">
+<meta property="og:image" content="https://blog.linuxboy.top/images/9.png">
+<meta property="og:updated_time" content="2019-07-04T05:45:23.638Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="nginx编译安装后对nginx进行平滑升级">
-<meta name="twitter:description" content="nginx编译安装后用了一段时间后发现当前版本太老或需要新的功能时就需对当前nginx版本进行版本升级，但又不能影响正常的使用，所以这时就需到对nginx的平滑升级，更新到最新版本了。  本文演示的是nginx-1.6.0升级到nginx-1.14.0的过程，其他版本也适用。 nginx新版的下载   下载页面：http://nginx.org/en/download.html1wget ht">
+<meta name="twitter:title" content="新安装的linux系统优化调优">
+<meta name="twitter:description" content="安装centos7系统首先,先介绍一下CentOS7的镜像,本文中,我们使用的是CentOS7.2的镜像CentOS7的下载地址可以从以下这个地址下载http://mirrors.aliyun.com/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1708.isoCentOS -7-x86_64 -DVD -1708.iso从 CentOS 7 之后，版本命名就">
+<meta name="twitter:image" content="https://blog.linuxboy.top/images/8.png">
 
 
 
@@ -141,7 +151,7 @@
 
 
 
-  <link rel="canonical" href="https://blog.linuxboy.top/2018/linux/20181008.html"/>
+  <link rel="canonical" href="https://blog.linuxboy.top/2019/linux/20190704.html"/>
 
 
 
@@ -155,7 +165,7 @@
 })();
 </script>
 
-  <title>nginx编译安装后对nginx进行平滑升级 | LIUNX男孩</title>
+  <title>新安装的linux系统优化调优 | LIUNX男孩</title>
   
 
 
@@ -308,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.linuxboy.top/2018/linux/20181008.html">
+    <link itemprop="mainEntityOfPage" href="https://blog.linuxboy.top/2019/linux/20190704.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LIUNX男孩">
@@ -325,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">nginx编译安装后对nginx进行平滑升级</h1>
+          <h1 class="post-title" itemprop="name headline">新安装的linux系统优化调优</h1>
         
 
         <div class="post-meta">
@@ -337,8 +347,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-08T16:39:44+08:00">
-                2018-10-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-04T12:41:18+08:00">
+                2019-07-04
               </time>
             
 
@@ -397,19 +407,62 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="/assets/css/DPlayer.min.css"><script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><p>nginx编译安装后用了一段时间后发现当前版本太老或需要新的功能时就需对当前<code>nginx版本进行版本升级</code>，但又不能影响正常的使用，所以这时就需到对<code>nginx的平滑升级</code>，更新到最新版本了。</p>
-<p> 本文演示的是nginx-1.6.0升级到nginx-1.14.0的过程，其他版本也适用。</p>
-<h2 id="nginx新版的下载"><a href="#nginx新版的下载" class="headerlink" title="nginx新版的下载"></a>nginx新版的下载</h2><p>   下载页面：<a href="http://nginx.org/en/download.html" target="_blank" rel="external">http://nginx.org/en/download.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget http://nginx.org/download/nginx-1.14.0.tar.gz</div></pre></td></tr></table></figure></p>
-<h2 id="获取老版本nginx的配置"><a href="#获取老版本nginx的配置" class="headerlink" title="获取老版本nginx的配置"></a>获取老版本nginx的配置</h2><p>查看当前版本：<code>/usr/local/nginx/sbin/nginx -v</code><br>查看当前配置：<code>/usr/local/nginx/sbin/nginx -V</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[root@linuxboy ~]# /usr/local/nginx/sbin/nginx -v</div><div class="line">nginx version: nginx/1.6.0</div><div class="line">[root@linuxboy ~]# /usr/local/nginx/sbin/nginx -V</div><div class="line">nginx version: nginx/1.6.0</div><div class="line">built by gcc 4.8.5 20150623 (Red Hat 4.8.5-28) (GCC) </div><div class="line">TLS SNI support enabled</div><div class="line">configure arguments: --prefix=/usr/local/nginx-1.6.0 --without-http_memcached_module --user=www --group=www --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-openssl=/root/tool/openssl-1.0.1h --with-pcre=/root/tool/pcre-8.35</div></pre></td></tr></table></figure></p>
-<h2 id="解压新版nginx源码包"><a href="#解压新版nginx源码包" class="headerlink" title="解压新版nginx源码包"></a>解压新版nginx源码包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tar xf nginx-1.14.0.tar.gz </div><div class="line">cd nginx-1.14.0</div></pre></td></tr></table></figure>
-<h2 id="对新版重新编译前的配置"><a href="#对新版重新编译前的配置" class="headerlink" title="对新版重新编译前的配置"></a>对新版重新编译前的配置</h2><p>   这里的配置和老版本的一样 : /usr/local/nginx/sbin/nginx -V<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./configure --prefix=/usr/local/nginx-1.6.0 --without-http_memcached_module --user=www --group=www --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-openssl=/root/tool/openssl-1.0.1h --with-pcre=/root/tool/pcre-8.35</div></pre></td></tr></table></figure></p>
-<p>执行<code>echo $?</code>来判断是否安装重新编译成功。</p>
-<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>   只编译make ,不执行make install</p>
-<h3 id="编译后通过ls可以看到有个objs的目录"><a href="#编译后通过ls可以看到有个objs的目录" class="headerlink" title="编译后通过ls可以看到有个objs的目录"></a>编译后通过ls可以看到有个objs的目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@linuxboy nginx-1.14.0]# ls</div><div class="line">auto     CHANGES.ru  configure  html     Makefile  objs    src</div><div class="line">CHANGES  conf        contrib    LICENSE  man       README</div></pre></td></tr></table></figure>
-<h3 id="进入objs目录，替换老版本的nginx主程序（在操作这里前一定要先备份，免得出错）"><a href="#进入objs目录，替换老版本的nginx主程序（在操作这里前一定要先备份，免得出错）" class="headerlink" title="进入objs目录，替换老版本的nginx主程序（在操作这里前一定要先备份，免得出错）"></a>进入objs目录，替换老版本的nginx主程序（在操作这里前一定要先备份，免得出错）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cp -a /usr/local/nginx/sbin/nginx /usr/local/nginx/sbin/nginx.bak</div><div class="line">cd objs/</div><div class="line">mv nginx /usr/local/nginx/sbin/nginx</div></pre></td></tr></table></figure>
-<h2 id="平滑升级"><a href="#平滑升级" class="headerlink" title="平滑升级"></a>平滑升级</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">make upgrade</div><div class="line">/usr/local/nginx-1.6.0/sbin/nginx -t</div><div class="line">nginx: the configuration file /usr/local/nginx-1.6.0/conf/nginx.conf syntax is ok</div><div class="line">nginx: configuration file /usr/local/nginx-1.6.0/conf/nginx.conf test is successful</div><div class="line">kill -USR2 `cat /usr/local/nginx-1.6.0/logs/nginx.pid`</div><div class="line">sleep 1</div><div class="line">test -f /usr/local/nginx-1.6.0/logs/nginx.pid.oldbin</div><div class="line">kill -QUIT `cat /usr/local/nginx-1.6.0/logs/nginx.pid.oldbin`</div></pre></td></tr></table></figure>
-<h2 id="升级成功，查看版本"><a href="#升级成功，查看版本" class="headerlink" title="升级成功，查看版本"></a>升级成功，查看版本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[root@linuxboy ~]# /usr/local/nginx/sbin/nginx -v</div><div class="line">nginx version: nginx/1.14.0</div><div class="line"></div><div class="line">[root@linuxboy ~]# /usr/local/nginx/sbin/nginx -V</div><div class="line">nginx version: nginx/1.14.0</div><div class="line">built by gcc 4.8.5 20150623 (Red Hat 4.8.5-28) (GCC) </div><div class="line">built with OpenSSL 1.0.1h 5 Jun 2014</div><div class="line">TLS SNI support enabled</div><div class="line">configure arguments: --prefix=/usr/local/nginx-1.6.0 --without-http_memcached_module --user=www --group=www --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-openssl=/root/tool/openssl-1.0.1h --with-pcre=/root/tool/pcre-8.35</div></pre></td></tr></table></figure>
-<p>  在升级前一定要提前备份好nginx程序和网站等文件，避免出错。</p>
+        <link rel="stylesheet" type="text/css" href="/assets/css/DPlayer.min.css"><script src="/assets/js/DPlayer.min.js"> </script><script src="/assets/js/APlayer.min.js"> </script><h2 id="安装centos7系统"><a href="#安装centos7系统" class="headerlink" title="安装centos7系统"></a>安装centos7系统</h2><p>首先,先介绍一下CentOS7的镜像,本文中,我们使用的是CentOS7.2的镜像<br>CentOS7的下载地址可以从以下这个地址下载<br><a href="http://mirrors.aliyun.com/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1708.iso" target="_blank" rel="external">http://mirrors.aliyun.com/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1708.iso</a><br>CentOS -7-x86_64 -DVD -1708.iso<br>从 CentOS 7 之后，版本命名就跟发行的日期有关了。<br>• CentOS-7 系统是 7.x 版本<br>• x86_64   64 位操作系统，并且从 7以后不再提供 以后不再提供 32 位镜像。 位镜像。<br><a id="more"></a><br>1.我这里为了性能考虑，采用最小化安装<br><img src="/images/8.png" alt=""><br>2.动手配置一下磁盘<br><img src="/images/1.png" alt=""><br><img src="/images/2.png" alt=""><br><img src="/images/3.png" alt=""><br><img src="/images/4.png" alt=""><br><img src="/images/5.png" alt=""><br><img src="/images/6.png" alt=""><br><img src="/images/7.png" alt=""><br>3.然后开始安装，<code>注意：安装的时候记得要设置root密码！</code><br><img src="/images/9.png" alt=""><br>登录系统<br>配置yum源安装相关插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">mkdir /mnt/cdrom</div><div class="line">mount /dev/sr0 /mnt/cdrom</div><div class="line">vi /etc/yum.repos.d/linux.repo</div><div class="line">[linux]</div><div class="line">name=linux</div><div class="line">baseurl=file:///mnt/cdrom</div><div class="line">enabled=1</div><div class="line">gpgcheck=0</div></pre></td></tr></table></figure></p>
+<p>配置完成后安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">yum install vim wget bash-completion lrzsz nmap nc tree htop iftop net-tools -y</div><div class="line">yum -y groups install Compatibility\ Libraries </div><div class="line">yum -y groups install Development\ Tools </div><div class="line">yum groups install Base</div></pre></td></tr></table></figure></p>
+<p>bash-completion是linux7中补齐命令的软件包。</p>
+<p>##配置网络<br>1.编辑网卡配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33</div><div class="line">TYPE=Ethernet</div><div class="line">PROXY_METHOD=none</div><div class="line">BROWSER_ONLY=no</div><div class="line">BOOTPROTO=static</div><div class="line">IPADDR=100.1.1.120</div><div class="line">PREFIX=24</div><div class="line">GATEWAY=100.1.1.1</div><div class="line">DNS1=100.1.1.1</div><div class="line">DEFROUTE=yes</div><div class="line">IPV4_FAILURE_FATAL=no</div><div class="line">NAME=ens33</div><div class="line">DEVICE=ens33</div><div class="line">ONBOOT=yes</div></pre></td></tr></table></figure></p>
+<p>或者使用nmcli、nmtui等命令，这里就不一一演示了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nmcli connection add type ethernet ifname ens33 con-name ens33 ipv4.method manual ipv4.addresses 100.1.1.120/24 ipv4.gateway 100.1.1.1 ipv4.dns 100.1.1.1</div></pre></td></tr></table></figure></p>
+<h3 id="mncli命令介绍"><a href="#mncli命令介绍" class="headerlink" title="mncli命令介绍"></a>mncli命令介绍</h3><pre><code>显示所有网络连接：nmcli con show
+
+显示活动网络连接：nmcli con show -active
+
+显示指定网络连接的详情：nmcli con show ens33
+
+显示网络设备连接状态：nmcli dev status
+
+显示所有网络设备的详情：nmcli dev show
+
+显示指定网络设备的详情：nmcli dev show ens33
+
+启用网络连接：nmcli con up ens33
+
+停用网络连接（可被自动激活）：nmcli con down ens33
+
+禁用网卡，防止被自动激活：nmcli dev dis eth0 
+
+删除网络连接的配置文件：nmcli con del ens33
+
+重新加载配置网络配置文件：nmcli con reload
+
+nmcli命令修改所对应的文件条目
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">nmcli con mod                            ifcfg-*文件</div><div class="line"></div><div class="line">ipv4.method manual                       BOOTPROTO=none</div><div class="line"></div><div class="line">ipv4.method auto                         BOOTPROTO=dhcp</div><div class="line"></div><div class="line">connection.id eth0                       NAME=eth0</div><div class="line"></div><div class="line">(ipv4.addresses                  	     IPADDR0=192.0.2.1</div><div class="line"></div><div class="line">“192.0.2.1/24                            PREFIX0=24</div><div class="line"></div><div class="line">192.0.2.254”)                            GATEWAY0=192.0.2.254</div><div class="line"></div><div class="line">ipv4.dns 8.8.8.8          	             DNS0=8.8.8.8     </div><div class="line"></div><div class="line">pv4.dns-search example.com               DOMAIN=example.com</div><div class="line"></div><div class="line">pv4.ignore-auto-dns true                 PEERDNS=no</div><div class="line"></div><div class="line">connection.autoconnect yes     		     ONBOOT=yes</div><div class="line"></div><div class="line">connection.interface-nameeth0  			 DEVICE=eth0</div><div class="line"></div><div class="line">802-3-ethernet.mac-address...      		 HWADDR=...</div></pre></td></tr></table></figure>
+</code></pre><h2 id="优化系统"><a href="#优化系统" class="headerlink" title="优化系统"></a>优化系统</h2><h3 id="SSH登录优化"><a href="#SSH登录优化" class="headerlink" title="SSH登录优化"></a>SSH登录优化</h3><p>SSH 是Secure Shell Protocol的简写，由IETF网络工作小组( Network Working Group)制定；在进行数据传输之前，SSH先对联机数据包通过加密支术进行加密处理，加密后再进行数据传输。确保了传递的数据安全。<br>优化参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Port</td>
+<td style="text-align:center">指定sshd进程监听的端口号，默认为22。可以是使用多条指令监听多个端口。默认将在本机的所有网络接口上监听，但是可以通过ListenAddress指定只在某个特定的接口上监听。</td>
+</tr>
+<tr>
+<td>PermitEmptyPasswords</td>
+<td style="text-align:center">是否允许密码为空的用户远程登录。默认为“no”</td>
+</tr>
+<tr>
+<td>PermitRootLogin</td>
+<td style="text-align:center">是否允许root登录。可用值如下：“yes”（默认）表示允许。“no”表示禁止。“without-password”表示禁止使用密码认证登录。“force-commands-only”表示只有在指定了command选项的情况下才允许使用公钥认证登录。同时其它认证方法全部被禁止。这个值常用于做远程备份之类的事情。</td>
+</tr>
+<tr>
+<td>UserDNS</td>
+<td style="text-align:center">指定sshd是否应该对远程主机名进行反向解析，以此检查此主机名是否与其IP地址真是对应。默认值为“yes”。</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -428,12 +481,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/linux/20181008.html">nginx编译安装后对nginx进行平滑升级</a></p>
+  <p><span>本文标题:</span><a href="/2019/linux/20190704.html">新安装的linux系统优化调优</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 LIUNX男孩 的个人博客">LIUNX男孩</a></p>
-  <p><span>发布时间:</span>2018年10月08日 - 16:10</p>
-  <p><span>最后更新:</span>2019年05月15日 - 09:05</p>
-  <p><span>原始链接:</span><a href="/2018/linux/20181008.html" title="nginx编译安装后对nginx进行平滑升级">https://blog.linuxboy.top/2018/linux/20181008.html</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://blog.linuxboy.top/2018/linux/20181008.html"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年07月04日 - 12:07</p>
+  <p><span>最后更新:</span>2019年07月04日 - 13:07</p>
+  <p><span>原始链接:</span><a href="/2019/linux/20190704.html" title="新安装的linux系统优化调优">https://blog.linuxboy.top/2019/linux/20190704.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://blog.linuxboy.top/2019/linux/20190704.html"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -488,18 +541,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/uncategorized/null.html" rel="next" title="mysql">
-                <i class="fa fa-chevron-left"></i> mysql
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/mysql/20181005.html" rel="prev" title="mysql二进制安装">
-                mysql二进制安装 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/uncategorized/null.html" rel="prev" title="saltsatck">
+                saltsatck <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -666,7 +715,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx新版的下载"><span class="nav-number">1.</span> <span class="nav-text">nginx新版的下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取老版本nginx的配置"><span class="nav-number">2.</span> <span class="nav-text">获取老版本nginx的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解压新版nginx源码包"><span class="nav-number">3.</span> <span class="nav-text">解压新版nginx源码包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对新版重新编译前的配置"><span class="nav-number">4.</span> <span class="nav-text">对新版重新编译前的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译"><span class="nav-number">5.</span> <span class="nav-text">编译</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编译后通过ls可以看到有个objs的目录"><span class="nav-number">5.1.</span> <span class="nav-text">编译后通过ls可以看到有个objs的目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进入objs目录，替换老版本的nginx主程序（在操作这里前一定要先备份，免得出错）"><span class="nav-number">5.2.</span> <span class="nav-text">进入objs目录，替换老版本的nginx主程序（在操作这里前一定要先备份，免得出错）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#平滑升级"><span class="nav-number">6.</span> <span class="nav-text">平滑升级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#升级成功，查看版本"><span class="nav-number">7.</span> <span class="nav-text">升级成功，查看版本</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装centos7系统"><span class="nav-number">1.</span> <span class="nav-text">安装centos7系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mncli命令介绍"><span class="nav-number">1.1.</span> <span class="nav-text">mncli命令介绍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化系统"><span class="nav-number">2.</span> <span class="nav-text">优化系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH登录优化"><span class="nav-number">2.1.</span> <span class="nav-text">SSH登录优化</span></a></li></ol></li></ol></div>
             
 
           </div>

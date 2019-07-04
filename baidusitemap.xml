@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.linuxboy.top/2019/linux/20190704.html</loc>
+    <lastmod>2019-07-04T05:45:23.638Z</lastmod>
+  </url>  <url>
+    <loc>https://blog.linuxboy.top/2018/linux/20181008.html</loc>
+    <lastmod>2019-05-15T01:57:18.495Z</lastmod>
+  </url>  <url>
     <loc>https://blog.linuxboy.top/2019/uncategorized/null.html</loc>
     <lastmod>2019-03-06T05:49:58.077Z</lastmod>
   </url>  <url>
     <loc>https://blog.linuxboy.top/2018/uncategorized/null.html</loc>
     <lastmod>2018-12-28T07:08:05.281Z</lastmod>
-  </url>  <url>
-    <loc>https://blog.linuxboy.top/2018/linux/20181008.html</loc>
-    <lastmod>2018-10-08T09:15:29.850Z</lastmod>
   </url>  <url>
     <loc>https://blog.linuxboy.top/2018/mysql/20181005.html</loc>
     <lastmod>2018-10-05T04:50:34.177Z</lastmod>
